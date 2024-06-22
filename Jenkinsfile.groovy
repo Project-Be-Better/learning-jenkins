@@ -3,14 +3,16 @@ pipeline {
     agent any
 
     def OS = params.OS
-    def config = readYaml text: params.CONFIG_YAML
+    def CONFIG = readYaml text: params.UPLOAD_FILE
+    def SIMULATION = params.SIMULATION
 
     stages {
 
         stage('Initialisation'){
             steps{
                 echo('Initialisation')
-                echo config
+                echo(CONFIG)
+                echo(SIMULATION)
             }
         }
         stage('Build') {
