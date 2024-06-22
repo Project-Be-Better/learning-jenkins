@@ -4,11 +4,9 @@ pipeline {
 
 
 
-    def OS = params.OS
-    script(
-    def CONFIG = readYaml text: params.UPLOAD_FILE
-    )
-    def SIMULATION = params.SIMULATION
+    script {
+        def CONFIG = readYaml text: params.UPLOAD_FILE
+    }
 
     stages {
 
@@ -24,6 +22,7 @@ pipeline {
                 echo 'Building...'
 
                 print 'DEBUG: parameter OS is  ' + OS
+                echo(CONFIG)
                 
             // Add your build commands here
             }
