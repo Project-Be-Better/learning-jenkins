@@ -2,7 +2,7 @@
 pipeline {
     agent any
 
-    def CONFIG_YAML = params.UPLOAD_FILE
+    def CONFIG_YAML = params.YAML_FILE
     def BOOL_SIMULATION = params.SIMULATION
     def OS = params.OS
 
@@ -14,9 +14,9 @@ pipeline {
                     // def CONFIG = readYaml text: params.UPLOAD_FILE
                     echo 'Initialisation'
                     echo "Config YAML:"
-                    echo CONFIG
                     echo(CONFIG_YAML)
                     echo(BOOL_SIMULATION)
+                    echo(OS)
                 }
             }
         }
