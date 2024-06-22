@@ -9,8 +9,6 @@ pipeline {
         stage('Initialisation'){
             steps{
                 echo('Initialisation')
-
-                echo config
             }
         }
         stage('Build') {
