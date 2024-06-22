@@ -4,8 +4,7 @@ pipeline {
 
     stages {
 
-        def OS = params.OS
-        def config = params.YAML_FILE
+
 
         stage('Initialisation'){
             steps{
@@ -16,9 +15,11 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building...'
+                    echo 'Building...'
 
-                print 'DEBUG: parameter OS is  ' + OS
+                    echo "Simulation mode: ${params.SIMULATION}"
+                    echo "Operating System: ${params.OS}"
+                    echo "Operating System: ${params.YAML_FILE}"
                 
             // Add your build commands here
             }
