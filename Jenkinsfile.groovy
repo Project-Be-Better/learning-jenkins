@@ -2,12 +2,14 @@
 pipeline {
     agent any
 
+    def CONFIG = readYaml file: params.UPLOAD_FILE
+
     stages {
 
         stage('Initialisation') {
             steps {
                 script {
-                    def CONFIG = readYaml text: params.UPLOAD_FILE
+                    // def CONFIG = readYaml text: params.UPLOAD_FILE
                     echo 'Initialisation'
                     echo "Config YAML:"
                     echo CONFIG
