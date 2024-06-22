@@ -14,11 +14,10 @@ pipeline {
         stage('Build') {
             steps {
                     echo 'Building...'
-
+                    def yamlContent = readFile(params.UPLOAD_FILE)
                     echo "Simulation mode: ${params.SIMULATION}"
                     echo "Operating System: ${params.OS}"
-                    echo "Operating System: ${params.YAML_FILE}"
-                    echo(params)
+                    echo(yamlContent.trim())
                 
             // Add your build commands here
             }
