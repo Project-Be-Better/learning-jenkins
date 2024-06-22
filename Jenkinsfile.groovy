@@ -1,9 +1,13 @@
 
 pipeline {
     agent any
+    
+    node{
+        def CONFIG = readYaml text: params.UPLOAD_FILE
+    }
 
     def OS = params.OS
-    def CONFIG = readYaml text: params.UPLOAD_FILE
+    // def CONFIG = readYaml text: params.UPLOAD_FILE
     def SIMULATION = params.SIMULATION
 
     stages {
