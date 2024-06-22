@@ -2,22 +2,16 @@
 pipeline {
     agent any
 
-    def CONFIG_YAML = params.YAML_FILE
-    def BOOL_SIMULATION = params.SIMULATION
     def OS = params.OS
+    def config = params.YAML_FILE
 
     stages {
 
-        stage('Initialisation') {
-            steps {
-                script {
-                    // def CONFIG = readYaml text: params.UPLOAD_FILE
-                    echo 'Initialisation'
-                    echo "Config YAML:"
-                    echo(CONFIG_YAML)
-                    echo(BOOL_SIMULATION)
-                    echo(OS)
-                }
+        stage('Initialisation'){
+            steps{
+                echo('Initialisation')
+                
+                echo config
             }
         }
         stage('Build') {
@@ -25,7 +19,6 @@ pipeline {
                 echo 'Building...'
 
                 print 'DEBUG: parameter OS is  ' + OS
-                echo(CONFIG)
                 
             // Add your build commands here
             }
