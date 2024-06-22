@@ -2,19 +2,18 @@
 pipeline {
     agent any
 
-
-
-    script {
-        def CONFIG = readYaml text: params.UPLOAD_FILE
-    }
-
     stages {
 
-        stage('Initialisation'){
-            steps{
-                echo('Initialisation')
-                echo(CONFIG)
-                echo(SIMULATION)
+        stage('Initialisation') {
+            steps {
+                script {
+                    def CONFIG = readYaml text: params.UPLOAD_FILE
+                    echo 'Initialisation'
+                    echo "Config YAML:"
+                    echo CONFIG
+                    echo "OS parameter: ${params.OS}"
+                    echo "Simulation mode: ${params.SIMULATION}"
+                }
             }
         }
         stage('Build') {
