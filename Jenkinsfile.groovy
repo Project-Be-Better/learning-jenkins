@@ -18,6 +18,7 @@ pipeline {
                     echo "Simulation mode: ${params.SIMULATION}"
                     echo "Operating System: ${params.OS}"
                     echo "Operating System: ${params.YAML_FILE}"
+                    echo(params)
                 
             // Add your build commands here
             }
