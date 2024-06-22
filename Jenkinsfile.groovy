@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -5,21 +6,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Add your build commands here
+
+                print 'DEBUG: parameter isFoo = ' + params.OS
+            // Add your build commands here
             }
         }
-        
         stage('Test') {
             steps {
                 echo 'Testing...'
-                // Add your test commands here
+            // Add your test commands here
             }
         }
-        
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                // Add your deploy commands here
+            // Add your deploy commands here
             }
         }
     }
