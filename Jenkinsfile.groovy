@@ -2,15 +2,15 @@
 pipeline {
     agent any
 
-    def OS = params.OS
-    def config = params.YAML_FILE
-
     stages {
+
+        def OS = params.OS
+        def config = params.YAML_FILE
 
         stage('Initialisation'){
             steps{
                 echo('Initialisation')
-                
+
                 echo config
             }
         }
