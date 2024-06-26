@@ -33,7 +33,8 @@ jenkins_home:
     }
 
     environment {
-        OS = isUnix() ? 'unix' : 'windows'
+        // OS = isUnix() ? 'unix' : 'windows'
+        OS = ''
     }
 
     stages {
@@ -42,12 +43,14 @@ jenkins_home:
                 script {
                     echo 'Initialisation...'
 
-                // if (isUnix()) {
-                //     sh 'echo "Running on unix based system"'
-                // }
-                // else {
-                //     bat 'echo "Running on unix based system"'
-                // }
+                    if (isUnix()) {
+                        env.OS = 'unix'
+                        sh 'echo "Running on unix based system"'
+                    }
+                else {
+                        env.OS = 'windows'
+                        bat 'echo "Running on unix based system"'
+                }
                 }
             }
         }
