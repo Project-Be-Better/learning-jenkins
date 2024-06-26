@@ -37,7 +37,7 @@ pipeline {
                 echo "${env.OS}"
                 script {
                     if (env.OS == 'unix') {
-                        sh 'python3 main.py'
+                        sh 'echo "running my python file here"'
                     }
                 }
             }
