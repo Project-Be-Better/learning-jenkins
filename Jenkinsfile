@@ -12,10 +12,10 @@ pipeline {
                     echo 'Initialisation...'
 
                     if (isUnix()) {
-                        sh(echo('Running on unix based system'))
+                        sh 'echo "Running on unix based system"'
                     }
                     else {
-                        bat(echo('Running windows system'))
+                        bat 'echo "Running on unix based system"'
                     }
                 }
             }
