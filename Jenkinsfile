@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Parse YAML'){
             steps{
-                echo '${params.YAML_PARAM}'
+                echo "${params.YAML_PARAM}"
             }
         }
         stage('Build') {
