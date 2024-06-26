@@ -1,7 +1,9 @@
 pipeline {
     agent any
 
-
+    parameters{
+        string(name:'YAML_PARAM',description:'Enter the YAML paramter')
+    }
 
     stages {
         stage('Initialisation') {
@@ -9,6 +11,11 @@ pipeline {
                 script {
                 echo 'Initialisation...'
                 }
+            }
+        }
+        stage('Parse YAML'){
+            steps{
+                echo '${params.YAML_PARAM}'
             }
         }
         stage('Build') {
