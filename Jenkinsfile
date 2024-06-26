@@ -1,21 +1,27 @@
 pipeline {
     agent any
 
-    parameters{
-        // string(name:'YAML_PARAM',description:'Enter the YAML paramter')
-         string(name: 'YAML_PARAM', description: 'Enter the YAML parameter', defaultValue: '', trim: true)
+    parameters {
+        string(name: 'YAML_PARAM', description: 'Enter the YAML parameter', defaultValue: '', trim: true)
     }
 
     stages {
         stage('Initialisation') {
             steps {
                 script {
-                echo 'Initialisation...'
+                    echo 'Initialisation...'
+
+                    if (isUnix()) {
+                        sh(echo('Running on unix based system'))
+                    }
+                    else {
+                        bat(echo('Running windows system'))
+                    }
                 }
             }
         }
-        stage('Parse YAML'){
-            steps{
+        stage('Parse YAML') {
+            steps {
                 echo "${params.YAML_PARAM}"
             }
         }
