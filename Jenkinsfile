@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     parameters{
-        string(name:'YAML_PARAM',description:'Enter the YAML paramter')
+        // string(name:'YAML_PARAM',description:'Enter the YAML paramter')
+         string(name: 'YAML_PARAM', description: 'Enter the YAML parameter', defaultValue: '', trim: true)
     }
 
     stages {
