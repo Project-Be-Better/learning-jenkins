@@ -16,8 +16,13 @@ pipeline {
             steps {
                 script {
                     echo 'Initialisation...'
+                    def currentJobName = env.JOB_NAME
+                    def currentBuildId = env.BUILD_ID
+                    def currentBuildNumber = env.BUILD_NUMBER
 
-                    echo "PARAMETER_NAME : ${PARAMETER_NAME}"
+                    echo "Current Job Name: ${currentJobName}"
+                    echo "Current Build ID: ${currentBuildId}"
+                    echo "Current Build Number: ${currentBuildNumber}"
 
                     if (isUnix()) {
                         env.OS = 'unix'
