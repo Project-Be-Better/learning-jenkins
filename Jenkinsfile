@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment {
-        OS = ''
+        OS = checkOS()
     }
 
     stages {
@@ -23,15 +23,6 @@ pipeline {
                     echo "Current Job Name: ${currentJobName}"
                     echo "Current Build ID: ${currentBuildId}"
                     echo "Current Build Number: ${currentBuildNumber}"
-
-                    if (isUnix()) {
-                        env.OS = 'unix'
-                        sh 'echo "Running on unix based system"'
-                    }
-                else {
-                        env.OS = 'windows'
-                        bat 'echo "Running on unix based system"'
-                }
                 }
             }
         }
@@ -43,8 +34,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                echo "${env}"
-                echo "DEBUG: parameter OS is ${env.OS}"
+                echo "${env.OS}"
             }
         }
         stage('Test') {
@@ -57,5 +47,16 @@ pipeline {
                 echo 'Deploying...'
             }
         }
+    }
+}
+
+def checkOS() {
+    if (isUnix()) {
+        sh 'echo "Running on unix based system"'
+        return 'unix'
+    }
+    else {
+        bat 'echo "Running on unix based system"'
+        return 'windows'
     }
 }
