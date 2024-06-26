@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 echo "${env.OS}"
-                step {
+                script {
                     if (env.OS == 'unix') {
                         sh 'python3 main.py'
                     }
