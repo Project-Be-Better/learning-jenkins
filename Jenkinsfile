@@ -17,6 +17,8 @@ pipeline {
                 script {
                     echo 'Initialisation...'
 
+                    echo "PARAMETER_NAME : ${PARAMETER_NAME}"
+
                     if (isUnix()) {
                         env.OS = 'unix'
                         sh 'echo "Running on unix based system"'
