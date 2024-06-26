@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                echo "DEBUG: parameter OS is ${params.OS}"
+                echo "DEBUG: parameter OS is ${env.OS}"
             }
         }
         stage('Test') {
