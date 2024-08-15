@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-        text(name: 'YAML_PARAM', description: 'Enter the YAML parameter', defaultValue: '''
-        Please Enter the Input
-        ''', trim: true)
-    }
-
     environment {
         OS = checkOS()
     }
